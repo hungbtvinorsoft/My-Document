@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <style type='text/css'>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .border tr td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        table tr td {
+            border: 0px solid red;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+            padding: 5px 0;
+        }
+
+        h3 {
+            padding: 0;
+            margin: 0;
+        }
+
+        #tblThongTinTaiKhoanNganHang td {
+            font-weight: bold;
+        }
+
+        #tblThongTinTaiKhoanNganHang tr td:first-child::after {
+            content: " :";
+        }
+
+        #tblThongTinTaiKhoanNganHang tr td:first-child {
+            padding-left: 25px;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.5;
+            margin: 0px;
+        }
+
+        p::before {
+            content: "";
+            padding-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style='border:solid 0px blue;'>
+        <table>
+            <tr>
+                <td valign='top' rowspan='5'>
+                    <img width='180'
+                        src='data:image/jpg;base64,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' />
+                </td>
+            </tr>
+            <tr>
+                <td style='width:100%;'> <strong>{{Ten}}</strong> </td>
+            </tr>
+            <tr>
+                <td>Địa chỉ: {{DiaChi}}</td>
+            </tr>
+            <tr>
+                <td>Điện thoại: {{DienThoai}} – Mail: {{Email}}</td>
+            </tr>
+            <tr>
+                <td>Website: {{Website}}</td>
+            </tr>
+        </table>
+        <div style='padding-top:20px;'>
+            <table>
+                <tr>
+                    <td>Số: ....../ĐNTT-PTFV.HCM</td>
+                    <td class='text-right'> <i>TpHCM, {{NgayInDeNghi}}</i> </td>
+                </tr>
+            </table>
+        </div>
+        <div class='text-center' style='font-size:30px;padding:20px 0;'> <strong>THƯ ĐỀ NGHỊ THANH TOÁN</strong>
+        </div>
+        <div style='text-align:center'> <strong> <u>Kính gửi:</u> {{TenKhachHang}} </strong> </div>
+        <br>
+        <p>- <i>Căn cứ yêu cầu định giá số {{SoHopDong}} giữa {{Ten}} và {{TenKhachHang}};</i></p>
+        <p>- <i>Căn cứ theo thỏa thuận của hai bên khi ký hợp đồng;</i> </p>
+        <p> Như đã thỏa thuận, {{TenKhachHang}} đồng ý thanh toán tạm ứng/ phần còn lại phí dịch vụ thẩm định giá:
+            <strong>{{PhiThamDinh}}</strong> cho {{Ten}}
+        </p>
+        <P>Vậy, đề nghị Quý Công ty thanh toán khoản phí cho chúng tôi theo thông tin như sau:</P>
+        <table id="tblThongTinTaiKhoanNganHang">
+            <tbody style="line-height: 35px;">
+                <tr>
+                    <td style="width:20%;">Tên tài khoản </td>
+                    <td>{{Ten}}</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td>{{DiaChi}}</td>
+                </tr>
+                <tr>
+                    <td>Số tài khoản</td>
+                    <td>{{SoTaiKhoan}}</td>
+                </tr>
+                <tr>
+                    <td>Mở tại</td>
+                    <td>{{NganHang}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p> Nhằm bảo đảm các bên thực hiện tốt các nghĩa vụ và quyền lợi của hợp đồng, Công ty chúng tôi đề nghị Quý
+            Công ty thanh toán khoản phí theo quy định hợp đồng. </p>
+        <p>Công ty chúng tôi rất mong nhận được sự hợp tác của Quý Công ty, kính chúc Quý Công ty thành công và phát
+            triển.</p>
+        <p>Trân trọng !</p>
+        <table style="margin-top: 20px;">
+            <tr>
+                <td style='width:50%;'>
+                    <strong><u>Nơi nhận</u></strong>
+                </td>
+                <td class='text-center'> <strong>GIÁM ĐỐC CHI NHÁNH</strong> </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>- Như kính gửi</p>
+                    <p>- Lưu VT</p>
+                </td>
+                <!-- <td class='text-center'> <strong>{{HoTenGiamDoc}}</strong> </td> -->
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td class='text-center' style="padding-top: 40px"> <strong>{{HoTenGiamDoc}}</strong> </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
