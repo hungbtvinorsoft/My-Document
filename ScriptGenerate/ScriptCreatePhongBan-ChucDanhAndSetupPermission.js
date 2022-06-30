@@ -1,7 +1,7 @@
-
 // var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
-var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjU2MTcyMiwiZXhwIjoxNjU2NTY3NzIyLCJpYXQiOjE2NTY1NjE3MjIsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.9_L2jF-mirIOT8US5V0rXtAwjAQr6WgWiTjMHapVRc0"
+var domain = "http://45.119.215.79/thamdinhgia/";
+// var domain = "https://localhost:44378/";
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjU3MzY2MCwiZXhwIjoxNjU2NTc5NjYwLCJpYXQiOjE2NTY1NzM2NjAsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.ZmFkR2yoaDfU8dln6jtvgY6bgJvszWBa5w_gRznpOzM"
 
 var phongBans = [
     {
@@ -396,7 +396,7 @@ var phongBans = [
                             "permissionCode": "Update"
                         },
                         {
-                            "action": "phieu-yeu-cau",
+                            "action": "ds-phieu-yeu-cau",
                             "permissionCode": "GuiPheDuyet"
                         },
                         {
@@ -439,7 +439,12 @@ var Excutor = async function () {
                     permissionId: permission.id
                 };
             } else if (feature.features && feature.features.length > 0) {
-                GetPermission(action, permissionCode, feature.features);
+
+                var permission = GetPermission(action, permissionCode, feature.features);
+
+                if (permission) {
+                    return permission;
+                }
             }
         }
     }
@@ -458,17 +463,18 @@ var Excutor = async function () {
                 let chucDanhId = await createChucDanh(chucDanh);
 
                 if (chucDanhId && chucDanh.setPermission) {
-                    var per = chucDanh.setPermission;
+                    var per = {};
+                    var permissions = chucDanh.setPermission.permissions
 
                     per.subject = chucDanhId;
                     per.permissions = [];
-                    chucDanh.setPermission.permissions.map(x => {
+                    permissions.map(x => {
                         var permission = GetPermission(x.action, x.permissionCode, _dataFeatures);
 
                         if (permission != null)
                             per.permissions.push(permission);
                         else
-                            console.log({ 'action': action, 'permissionCode': permissionCode });
+                            console.log({ 'action': x.action, 'permissionCode': x.permissionCode });
                     })
                     await setPermission(per);
                 }
@@ -512,25 +518,20 @@ var createPhongBan = function (phongBan) {
 
 var createChucDanh = function (chucDanh) {
     return new Promise(resolve => {
+
+        var formData = new FormData()
+        formData.append('phongBanId', chucDanh.phongBanId)
+        formData.append('maChucDanh', chucDanh.maChucDanh)
+        formData.append('tenChucDanh', chucDanh.tenChucDanh)
+        formData.append('ghiChu', chucDanh.ghiChu || '')
+        formData.append('trangThai', chucDanh.trangThai)
+
         fetch(`${domain}api/v1/ChucDanhs`, {
             "headers": {
-                "accept": "*/*",
-                "accept-language": "vi,en;q=0.9",
                 "authorization": `bearer ${token}`,
-                "content-type": "application/json",
-                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\"",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
             },
-            "referrer": `${domain}swagger/index.html`,
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": JSON.stringify(chucDanh),
+            "body": formData,
             "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
         }).then(response => response.json())
             .then(result => {
                 if (result.succeeded) {
