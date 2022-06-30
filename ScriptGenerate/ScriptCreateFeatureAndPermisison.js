@@ -1,15 +1,14 @@
 
-// var domain = "http://45.119.215.79/thamdinhgia/";
-var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyI1MTZmMjBkYS1lNDNlLTQzZjEtMDhhOS0wOGRhM2VjMjI4MDAiLCI1MTZmMjBkYS1lNDNlLTQzZjEtMDhhOS0wOGRhM2VjMjI4MDAiXSwibmFtZSI6Im5oxrAiLCJlbWFpbCI6IkFkbWluQGdtYWlsLmNvbSIsIklzQmxvY2tlZCI6IkZhbHNlIiwibmJmIjoxNjU1MTExNDI4LCJleHAiOjE2NTUxMTc0MjgsImlhdCI6MTY1NTExMTQyOCwiaXNzIjoiQ29yZUlkZW50aXR5IiwiYXVkIjoiQ29yZUlkZW50aXR5VXNlciJ9.qXKXNwYVNmak5XfrLHWVkAKXg1DEu3oycSWrcYBh2YM"
+var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+// var domain = "https://localhost:44378/";
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjI5NzkxOSwiZXhwIjoxNjU2MzAzOTE5LCJpYXQiOjE2NTYyOTc5MTksImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.yRnjW0e-K2_poXV3w6R4sZkFRbf-6IHjh9bvjr7QyDM"
 
 var features = [
     {
-        Action: "", Title: "Tổng quát", PermissionCustom: [], GeneratePermissionDefault: false, Order: 1,
+        Action: "", Title: "Danh sách phiếu yêu cầu", PermissionCustom: [], GeneratePermissionDefault: false, Order: 1,
         features: [
-            { Action: "ds-tinh-thanh", Title: "DS Tỉnh thành", PermissionCustom: [], GeneratePermissionDefault: true, Order: 1 },
             {
-                Action: "ds-phieu-yeu-cau", Title: "DS Phiếu yêu cầu", PermissionCustom: [
+                Action: "ds-phieu-yeu-cau", Title: "Danh sách phiếu yêu cầu", PermissionCustom: [
                     { Code: "See", Title: "Xem" },
                     { Code: "Update", Title: "Cập nhật" },
                     { Code: "Delete", Title: "Xóa" },
@@ -23,29 +22,24 @@ var features = [
                 ], GeneratePermissionDefault: false, Order: 2
             },
             {
-                Action: "phieu-yeu-cau", Title: "Phiếu yêu cầu", PermissionCustom: [
+                Action: "phieu-yeu-cau", Title: "Tạo mới phiếu yêu cầu", PermissionCustom: [
                     { Code: "Create", Title: "Thêm mới" },
                 ], GeneratePermissionDefault: false, Order: 3
-            },
-            {
-                Action: "ds-phieu-thu", Title: "DS Phiếu thu", PermissionCustom: [
-                    { Code: "See", Title: "Xem" },
-                    { Code: "Update", Title: "Cập nhật" },
-                    { Code: "Delete", Title: "Hủy phiếu thu" },
-                    { Code: "Accept", Title: "Xác nhận thu" },
-                    { Code: "Print", Title: "In" },
-                    { Code: "Manager", Title: "Quản lý" },
-                ], GeneratePermissionDefault: false, Order: 4
-            },
-            {
-                Action: "phieu-thu", Title: "Phiếu thu", PermissionCustom: [
-                    { Code: "Create", Title: "Thêm mới" },
-                ], GeneratePermissionDefault: false, Order: 5
             },
         ]
     },
     {
-        Action: "ds-bao-cao-tham-dinh", Title: "DS BC Thẩm định", PermissionCustom: [
+        Action: "ds-phieu-thu", Title: "Danh sách phiếu thu", PermissionCustom: [
+            { Code: "See", Title: "Xem" },
+            { Code: "Update", Title: "Cập nhật" },
+            { Code: "Delete", Title: "Hủy phiếu thu" },
+            { Code: "Accept", Title: "Xác nhận thu" },
+            { Code: "Print", Title: "In" },
+            { Code: "Manager", Title: "Quản lý" },
+        ], GeneratePermissionDefault: false, Order: 2
+    },
+    {
+        Action: "ds-bao-cao-tham-dinh", Title: "Danh sách báo cáo khảo sát", PermissionCustom: [
             { Code: "See", Title: "Xem" },
             { Code: "Update", Title: "Cập nhật" },
             { Code: "Delete", Title: "Xóa" },
@@ -53,10 +47,10 @@ var features = [
             { Code: "KiemSoatHai", Title: "Kiểm soát hai" },
             { Code: "Print", Title: "In" },
             { Code: "Manager", Title: "Quản lý" },
-        ], GeneratePermissionDefault: false, Order: 2
+        ], GeneratePermissionDefault: false, Order: 3
     },
     {
-        Action: "ds-chung-thu", Title: "DS Chứng thư", PermissionCustom: [
+        Action: "ds-chung-thu", Title: "Danh sách Chứng thư", PermissionCustom: [
             { Code: "See", Title: "Xem" },
             { Code: "Update", Title: "Cập nhật" },
             { Code: "GuiPheDuyet", Title: "Gửi phê duyệt" },
@@ -65,45 +59,15 @@ var features = [
             { Code: "DeXuatBanHanh", Title: "Đề xuất ban hành" },
             { Code: "BanHanh", Title: "Ban hành" },
             { Code: "InDeNghiThanhToan", Title: "In đề nghị thanh toán" },
-        ], GeneratePermissionDefault: false, Order: 3
+            { Code: "Manager", Title: "Quản lý" },
+        ], GeneratePermissionDefault: false, Order: 4
     },
     {
-        Action: "ds-luong-kinh-doanh", Title: "DS Lương", PermissionCustom: [
+        Action: "ds-luong-kinh-doanh", Title: "Danh sách lương", PermissionCustom: [
             { Code: "See", Title: "Xem" },
             { Code: "LapDeXuat", Title: "Lập đề xuất" },
             { Code: "LapPhieuChi", Title: "Lập phiếu chi" },
-        ], GeneratePermissionDefault: false, Order: 4
-    },
-    { Action: "ds-chi-tieu-bao-cao", Title: "DS Chi tiêu báo cáo", PermissionCustom: [], GeneratePermissionDefault: true, Order: 5 },
-    {
-        Action: "bao-cao-khao-sat", Title: "Báo cáo khảo sát", PermissionCustom: [
-            { Code: "Create", Title: "Thêm mới" },
-        ], GeneratePermissionDefault: false, Order: 6
-    },
-    {
-        Action: "bao-cao-chung-thu", Title: "Báo cáo chứng thư", PermissionCustom: [
-            { Code: "Create", Title: "Thêm mới" },
-        ], GeneratePermissionDefault: false, Order: 7
-    },
-    { Action: "phong-ban", Title: "Danh mục phòng ban", PermissionCustom: [], GeneratePermissionDefault: true, Order: 8 },
-    {
-        Action: "cong-ty", Title: "Thông tin công ty", PermissionCustom: [
-            { Code: "See", Title: "Xem" },
-        ], GeneratePermissionDefault: false, Order: 9
-    },
-    {
-        Action: "ds-chuyen-vien", Title: "Danh sách chuyên viên", PermissionCustom: [
-            { Code: "See", Title: "Xem" },
-            { Code: "Create", Title: "Thêm mới" },
-            { Code: "Update", Title: "Cập nhật" },
-        ], GeneratePermissionDefault: false, Order: 10
-    },
-    {
-        Action: "chuc-danh", Title: "Danh mục chức danh", PermissionCustom: [
-            { Code: "See", Title: "Xem" },
-            { Code: "Create", Title: "Thêm mới" },
-            { Code: "Update", Title: "Cập nhật" },
-        ], GeneratePermissionDefault: false, Order: 11
+        ], GeneratePermissionDefault: false, Order: 5
     },
     {
         Action: "ds-phieu-chi", Title: "Danh sách phiếu chi", PermissionCustom: [
@@ -114,13 +78,46 @@ var features = [
             { Code: "PheDuyetKTT", Title: "Phê duyệt KTT" },
             { Code: "PheDuyetGD", Title: "Phê duyệt GĐ" },
             { Code: "XacThucChi", Title: "Xác thực chi" },
-        ], GeneratePermissionDefault: false, Order: 12
+        ], GeneratePermissionDefault: false, Order: 6
+    },
+    { 
+        Action: "phong-ban", Title: "Danh sách phòng ban", PermissionCustom: [], GeneratePermissionDefault: true, Order: 7 
     },
     {
-        Action: "manage-system", Title: "Phân quyền hệ thống", PermissionCustom: [
-            { Code: "Admin", Title: "Admin" },
-        ], GeneratePermissionDefault: false, Order: 13
+        Action: "chuc-danh", Title: "Danh sách chức danh", PermissionCustom: [
+            { Code: "See", Title: "Xem" },
+            { Code: "Create", Title: "Thêm mới" },
+            { Code: "Update", Title: "Cập nhật" },
+        ], GeneratePermissionDefault: false, Order: 8
     },
+    {
+        Action: "ds-chuyen-vien", Title: "Danh sách chuyên viên", PermissionCustom: [
+            { Code: "See", Title: "Xem" },
+            { Code: "Create", Title: "Thêm mới" },
+            { Code: "Update", Title: "Cập nhật" },
+        ], GeneratePermissionDefault: false, Order: 9
+    },
+   
+   
+    {
+        Action: "", Title: "Cấu hình hệ thống", PermissionCustom: [], GeneratePermissionDefault: false, Order: 10,
+        features: [
+            {
+                Action: "manage-system", Title: "Phân quyền hệ thống", PermissionCustom: [
+                    { Code: "Admin", Title: "Admin" },
+                ], GeneratePermissionDefault: false, Order: 1
+            },
+            {
+                Action: "cong-ty", Title: "Thông tin công ty", PermissionCustom: [
+                    { Code: "See", Title: "Xem" },
+                ], GeneratePermissionDefault: false, Order: 2
+            },
+            { Action: "ds-chi-tieu-bao-cao", Title: "DS Chi tiêu báo cáo", PermissionCustom: [], GeneratePermissionDefault: true, Order: 3 },
+        ]
+    },
+
+    
+   
 ]
 var Excutor = async function () {
     for (var i = 0; i < features.length; i++) {
