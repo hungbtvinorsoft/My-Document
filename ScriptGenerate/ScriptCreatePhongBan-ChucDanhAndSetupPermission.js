@@ -1,7 +1,7 @@
-// var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
-var domain = "http://45.119.215.79/thamdinhgia/";
+var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+// var domain = "http://45.119.215.79/thamdinhgia/";
 // var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjU3MzY2MCwiZXhwIjoxNjU2NTc5NjYwLCJpYXQiOjE2NTY1NzM2NjAsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.ZmFkR2yoaDfU8dln6jtvgY6bgJvszWBa5w_gRznpOzM"
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjkyMzU3NywiZXhwIjoxNjU2OTI5NTc3LCJpYXQiOjE2NTY5MjM1NzcsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.GORHtZJsabaH7Ygj9WjTVJFsL9Qk-8IsDN83okpdUvU"
 
 var phongBans = [
     {
@@ -72,6 +72,10 @@ var phongBans = [
                             "permissionCode": "Print"
                         },
                         {
+                            "action": "ds-phieu-thu",
+                            "permissionCode": "Manager"
+                        },
+                        {
                             "action": "ds-phieu-chi",
                             "permissionCode": "See"
                         },
@@ -112,12 +116,16 @@ var phongBans = [
                     "subject": "",
                     "permissions": [
                         {
-                            "action": "ds-phieu-thu",
+                            "action": "ds-phieu-yeu-cau",
                             "permissionCode": "See"
                         },
                         {
                             "action": "ds-phieu-yeu-cau",
                             "permissionCode": "LapPhieuThu"
+                        },
+                        {
+                            "action": "ds-phieu-thu",
+                            "permissionCode": "See"
                         },
                         {
                             "action": "ds-phieu-thu",
@@ -146,6 +154,10 @@ var phongBans = [
                         {
                             "action": "ds-chung-thu",
                             "permissionCode": "InDeNghiThanhToan"
+                        },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "See"
                         },
                         {
                             "action": "ds-luong-kinh-doanh",
@@ -410,6 +422,10 @@ var phongBans = [
                         {
                             "action": "ds-chung-thu",
                             "permissionCode": "DeXuatBanHanh"
+                        },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "See"
                         },
                         {
                             "action": "ds-luong-kinh-doanh",

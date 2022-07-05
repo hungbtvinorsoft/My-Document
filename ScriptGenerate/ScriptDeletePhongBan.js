@@ -1,8 +1,7 @@
-// var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
-var domain = "http://45.119.215.79/thamdinhgia/";
+var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+// var domain = "http://45.119.215.79/thamdinhgia/";
 // var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjU3MzY2MCwiZXhwIjoxNjU2NTc5NjYwLCJpYXQiOjE2NTY1NzM2NjAsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.ZmFkR2yoaDfU8dln6jtvgY6bgJvszWBa5w_gRznpOzM"
-
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjkyMzU3NywiZXhwIjoxNjU2OTI5NTc3LCJpYXQiOjE2NTY5MjM1NzcsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.GORHtZJsabaH7Ygj9WjTVJFsL9Qk-8IsDN83okpdUvU"
 
 var Excutor = async function () {
     var phongBans = (await getPhongbans()).map(x => x.id);
