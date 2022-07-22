@@ -1,7 +1,8 @@
 
-var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+// var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+var domain = "http://45.119.215.79/thamdinhgia/";
 // var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjI5NzkxOSwiZXhwIjoxNjU2MzAzOTE5LCJpYXQiOjE2NTYyOTc5MTksImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.yRnjW0e-K2_poXV3w6R4sZkFRbf-6IHjh9bvjr7QyDM"
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1ODQ3MjIwOSwiZXhwIjoxNjU4NDc4MjA5LCJpYXQiOjE2NTg0NzIyMDksImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.heIDIwJ0z_IsKJW5EAh84AE8jqFQfCl_73CTf2_R0HM"
 
 var features = [
     {
@@ -12,12 +13,16 @@ var features = [
                     { Code: "See", Title: "Xem" },
                     { Code: "Update", Title: "Cập nhật" },
                     { Code: "Delete", Title: "Xóa" },
+                    { Code: "LapPhieuThu", Title: "Lập phiếu thu" },
+                    { Code: "LapBaoCaoKhaoSat", Title: "Lập báo cáo khảo sát" },
+                    { Code: "LapChungThu", Title: "Lập chứng thư" },
                     { Code: "PhanBoChuyenVien", Title: "Phân bổ chuyên viên" },
                     { Code: "GuiPheDuyet", Title: "Gửi phê duyệt" },
                     { Code: "PheDuyet", Title: "Phê duyệt" },
                     { Code: "CapNhatTTTD", Title: "Cập nhật trạng thái thẩm định" },
                     { Code: "InBaoGia", Title: "In báo giá" },
                     { Code: "XacNhanPhi", Title: "Xác nhận phí" },
+                    { Code: "HuyPhieuYeuCau", Title: "Hủy phiếu" },
                     { Code: "Manager", Title: "Quản lý" },
                 ], GeneratePermissionDefault: false, Order: 2
             },
@@ -43,6 +48,7 @@ var features = [
             { Code: "See", Title: "Xem" },
             { Code: "Update", Title: "Cập nhật" },
             { Code: "Delete", Title: "Xóa" },
+            { Code: "GuiPheDuyet", Title: "Gửi phê duyệt" },
             { Code: "KiemSoatMot", Title: "Kiểm soát một" },
             { Code: "KiemSoatHai", Title: "Kiểm soát hai" },
             { Code: "Print", Title: "In" },
@@ -53,6 +59,7 @@ var features = [
         Action: "ds-chung-thu", Title: "Danh sách Chứng thư", PermissionCustom: [
             { Code: "See", Title: "Xem" },
             { Code: "Update", Title: "Cập nhật" },
+            { Code: "Print", Title: "In" },
             { Code: "GuiPheDuyet", Title: "Gửi phê duyệt" },
             { Code: "PheDuyet", Title: "Phê duyệt" },
             { Code: "HuyChungThu", Title: "Hủy chứng thư" },
@@ -65,7 +72,11 @@ var features = [
     {
         Action: "ds-luong-kinh-doanh", Title: "Danh sách lương", PermissionCustom: [
             { Code: "See", Title: "Xem" },
-            { Code: "LapDeXuat", Title: "Lập đề xuất" },
+            { Code: "LapDeXuatHoanPhi", Title: "Lập đề xuất hoàn phí" },
+            { Code: "LapDeXuatChiHoaHong", Title: "Lập đề xuất chi hoa hồng" },
+            { Code: "LapDeXuatLuongKinhDoanh", Title: "Lập đề xuất lương kinh doanh" },
+            { Code: "LapDeXuatCongTacPhi", Title: "Lập đề xuất công tác phí" },
+            { Code: "LapDeXuatLuongSanPham", Title: "Lập đề xuất lương sản phẩm" },
             { Code: "LapPhieuChi", Title: "Lập phiếu chi" },
         ], GeneratePermissionDefault: false, Order: 5
     },
@@ -80,8 +91,8 @@ var features = [
             { Code: "XacThucChi", Title: "Xác thực chi" },
         ], GeneratePermissionDefault: false, Order: 6
     },
-    { 
-        Action: "phong-ban", Title: "Danh sách phòng ban", PermissionCustom: [], GeneratePermissionDefault: true, Order: 7 
+    {
+        Action: "phong-ban", Title: "Danh sách phòng ban", PermissionCustom: [], GeneratePermissionDefault: true, Order: 7
     },
     {
         Action: "chuc-danh", Title: "Danh sách chức danh", PermissionCustom: [
@@ -97,8 +108,8 @@ var features = [
             { Code: "Update", Title: "Cập nhật" },
         ], GeneratePermissionDefault: false, Order: 9
     },
-   
-   
+
+
     {
         Action: "", Title: "Cấu hình hệ thống", PermissionCustom: [], GeneratePermissionDefault: false, Order: 10,
         features: [
@@ -116,8 +127,8 @@ var features = [
         ]
     },
 
-    
-   
+
+
 ]
 var Excutor = async function () {
     for (var i = 0; i < features.length; i++) {

@@ -1,7 +1,7 @@
-var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
-// var domain = "http://45.119.215.79/thamdinhgia/";
+// var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+var domain = "http://45.119.215.79/thamdinhgia/";
 // var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1NjkyMzU3NywiZXhwIjoxNjU2OTI5NTc3LCJpYXQiOjE2NTY5MjM1NzcsImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.GORHtZJsabaH7Ygj9WjTVJFsL9Qk-8IsDN83okpdUvU"
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1ODQ3MjIwOSwiZXhwIjoxNjU4NDc4MjA5LCJpYXQiOjE2NTg0NzIyMDksImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.heIDIwJ0z_IsKJW5EAh84AE8jqFQfCl_73CTf2_R0HM"
 
 var phongBans = [
     {
@@ -295,6 +295,18 @@ var phongBans = [
                             "action": "ds-phieu-yeu-cau",
                             "permissionCode": "CapNhatTTTD"
                         },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "See"
+                        },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "LapDeXuatCongTacPhi"
+                        },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "LapDeXuatLuongSanPham"
+                        },
                     ]
                 }
             },
@@ -429,7 +441,15 @@ var phongBans = [
                         },
                         {
                             "action": "ds-luong-kinh-doanh",
-                            "permissionCode": "LapDeXuat"
+                            "permissionCode": "LapDeXuatHoanPhi"
+                        },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "LapDeXuatChiHoaHong"
+                        },
+                        {
+                            "action": "ds-luong-kinh-doanh",
+                            "permissionCode": "LapDeXuatLuongKinhDoanh"
                         },
                     ]
                 }

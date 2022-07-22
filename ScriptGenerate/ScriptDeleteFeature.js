@@ -1,25 +1,13 @@
 
-// var domain = "http://45.119.215.79/thamdinhgia/";
-var domain = "https://localhost:44378/";
-var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyI1MTZmMjBkYS1lNDNlLTQzZjEtMDhhOS0wOGRhM2VjMjI4MDAiLCI1MTZmMjBkYS1lNDNlLTQzZjEtMDhhOS0wOGRhM2VjMjI4MDAiXSwibmFtZSI6Im5oxrAiLCJlbWFpbCI6IkFkbWluQGdtYWlsLmNvbSIsIklzQmxvY2tlZCI6IkZhbHNlIiwibmJmIjoxNjU1MTExNDI4LCJleHAiOjE2NTUxMTc0MjgsImlhdCI6MTY1NTExMTQyOCwiaXNzIjoiQ29yZUlkZW50aXR5IiwiYXVkIjoiQ29yZUlkZW50aXR5VXNlciJ9.qXKXNwYVNmak5XfrLHWVkAKXg1DEu3oycSWrcYBh2YM"
-
-var features = [
-    "830b3d6d-3b7c-4a9a-3f7a-08da3f9de53a",
-    "94ce4096-8e9f-4e10-ea32-08da4442ccf5",
-    "4fe09b3f-06cb-4b0c-3f80-08da3f9de53a",
-    "654b690a-d6df-473a-3f81-08da3f9de53a",
-    "1ae07b37-bc8a-4552-3f82-08da3f9de53a",
-    "16842368-d45d-4c70-3f83-08da3f9de53a",
-    "78156584-bfcf-4201-3f84-08da3f9de53a",
-    "828b60b7-7ec5-4285-3f85-08da3f9de53a",
-    "e1821f34-c6f7-49f1-3f86-08da3f9de53a",
-    "7b61ff4c-ada4-4253-3f87-08da3f9de53a",
-    "9dba7db8-174f-4376-3f88-08da3f9de53a",
-    "18d42d6c-c6de-4f25-3f89-08da3f9de53a",
-    "f9ef21d3-dba6-4e4f-3f8a-08da3f9de53a"
-]
+// var domain = "http://ptfv.tdg.vinorsoft.com/backend/";
+var domain = "http://45.119.215.79/thamdinhgia/";
+// var domain = "https://localhost:44378/";
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6WyJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiLCJiNzZmOTMxYS00NTgzLTRiYzQtYTQ0YS1lODlkNTMxMGY5Y2EiXSwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJJc0Jsb2NrZWQiOiJGYWxzZSIsIm5iZiI6MTY1ODQ3MjIwOSwiZXhwIjoxNjU4NDc4MjA5LCJpYXQiOjE2NTg0NzIyMDksImlzcyI6IkNvcmVJZGVudGl0eSIsImF1ZCI6IkNvcmVJZGVudGl0eVVzZXIifQ.heIDIwJ0z_IsKJW5EAh84AE8jqFQfCl_73CTf2_R0HM"
 
 var Excutor = async function () {
+
+    var features = (await getFeatures()).map(x => x.id);
+
     for (let index = 0; index < features.length; index++) {
         let element = features[index];
         await DeleteFeatureById(element)
@@ -54,6 +42,30 @@ var DeleteFeatureById = function (featureId) {
             }
             return resolve(false);
         });
+    });
+}
+
+var getFeatures = function () {
+    return new Promise(resolve => {
+        fetch(`${domain}api/v1/ManageSystem/Features`, {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "authorization": `bearer ${token}`,
+            },
+            "referrer": `${domain}swagger/index.html`,
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(response => response.json())
+            .then(result => {
+                if (result.succeeded) {
+                    return resolve(result.data);
+                }
+                return resolve(false);
+            });
     });
 }
 Excutor();
